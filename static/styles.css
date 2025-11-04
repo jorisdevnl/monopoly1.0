@@ -1,0 +1,91 @@
+/* Client-side styles */
+:root{
+  --board-size: 660px;
+  --square-size: calc(var(--board-size) / 11);
+  --accent: #2b7a78;
+  --bg: #f6f5f5;
+}
+
+*{box-sizing:border-box}
+body{
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  margin:0;
+  background:var(--bg);
+  color:#222;
+}
+header{
+  padding:16px;
+  background:linear-gradient(90deg,var(--accent), #17252a);
+  color:white;
+}
+main{padding:16px}
+#game{
+  display:flex;
+  gap:16px;
+  align-items:flex-start;
+}
+.board{
+  width:var(--board-size);
+  height:var(--board-size);
+  display:grid;
+  grid-template-columns: repeat(11, 1fr);
+  grid-template-rows: repeat(11, 1fr);
+  border:4px solid #333;
+  background:linear-gradient(180deg,#fff,#eee);
+}
+.square{
+  border:1px solid #999;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  padding:4px;
+  font-size:12px;
+  position:relative;
+  overflow:hidden;
+}
+.square .label{
+  position:absolute;
+  top:4px;
+  left:4px;
+  right:4px;
+  font-weight:600;
+  font-size:10px;
+  text-align:center;
+}
+.square .token{
+  width:18px;height:18px;border-radius:50%;margin:2px;border:2px solid #fff;
+}
+.token.p0{background:#e85d04}
+.token.p1{background:#2ec4b6}
+.token.p2{background:#ffd166}
+.token.p3{background:#8338ec}
+
+.side-info{
+  font-size:10px;
+  position:absolute;
+  bottom:2px;
+  left:2px;
+  right:2px;
+  text-align:center;
+}
+
+#sidebar{
+  width:320px;
+  background:white;
+  padding:12px;
+  border-radius:8px;
+  box-shadow:0 6px 20px rgba(0,0,0,0.08);
+}
+#controls{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+#controls button{padding:8px;border-radius:6px;border:1px solid #ccc;background:#fff;cursor:pointer}
+#controls button:disabled{opacity:0.4;cursor:not-allowed}
+#playersList{margin-top:8px}
+.playerCard{
+  padding:8px;border:1px dashed #ddd;margin-bottom:8px;border-radius:6px;
+}
+#message{margin-top:8px;color:#a33}
+footer{padding:12px;text-align:center;color:#666}
+@media (max-width:900px){
+  #game{flex-direction:column;align-items:center}
+  .board{transform:scale(0.9)}
+}
