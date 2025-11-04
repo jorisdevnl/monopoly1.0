@@ -1,0 +1,1 @@
+This PR adds a Node + Socket.IO multiplayer prototype of Monopoly with houses, auctions, Income Tax (10%) and Free Parking jackpot. Files added: server.js, static/app.js, static/styles.css, index.html, package.json, README.md, .gitignore. State is in-memory; mortgage/faillissement and house supply are TODO. Please review and merge when ready.
