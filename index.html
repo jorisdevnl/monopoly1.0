@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Monopoly (Node + Socket.IO)</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Monopoly (multiplayer)</h1>
+  </header>
+
+  <main>
+    <section id="lobby">
+      <h2>Lobby</h2>
+      <label>Naam: <input id="inputName" value="Speler" /></label>
+      <label>Kamer: <input id="inputRoom" value="room1" /></label>
+      <div style="margin-top:8px">
+        <button id="createBtn">Maak kamer</button>
+        <button id="joinBtn">Join kamer</button>
+      </div>
+      <div id="lobbyMsg" style="color:#a33;margin-top:8px"></div>
+    </section>
+
+    <section id="game" style="display:none">
+      <div id="board" class="board"></div>
+
+      <aside id="sidebar">
+        <div id="info">
+          <h2>Spel info</h2>
+          <div id="turn">Beurt: -</div>
+          <div id="dice">Dobbelstenen: -</div>
+          <div id="parkingPool">Free Parking-pot: €0</div>
+          <div id="message"></div>
+        </div>
+
+        <div id="controls">
+          <button id="rollBtn" disabled>Dobbel</button>
+          <button id="buyBtn" disabled>Koop eigendom</button>
+          <button id="buildBtn" disabled>Bouw huis</button>
+          <button id="auctionBtn" disabled>Start veiling</button>
+          <button id="endBtn" disabled>Einde beurt</button>
+          <button id="leaveBtn">Verlaat kamer</button>
+        </div>
+
+        <div id="auctionArea" style="margin-top:12px; border-top:1px dashed #ddd; padding-top:8px; display:none">
+          <h4>Veiling</h4>
+          <div id="auctionInfo"></div>
+          <div style="margin-top:6px">
+            <button id="auctionBidBtn" disabled>Bied</button>
+            <button id="auctionPassBtn" disabled>Pas</button>
+          </div>
+        </div>
+
+        <div id="players">
+          <h3>Spelers</h3>
+          <div id="playersList"></div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <small>Node + Socket.IO prototype — uitbreiden naar wens</small>
+  </footer>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/static/app.js"></script>
+</body>
+</html>

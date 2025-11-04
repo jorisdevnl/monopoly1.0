@@ -1,0 +1,4 @@
+.gitignore
+node_modules/
+game_save.json
+.env
